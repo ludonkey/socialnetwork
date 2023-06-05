@@ -14,3 +14,11 @@ function GetAllUsers()
   $response = $PDO->query("SELECT * FROM user ORDER BY nickname ASC");
   return $response->fetchAll();
 }
+
+function GetUserIdFromUserAndPassword($username, $password)
+{
+  global $PDO;
+  $response = $PDO->query("SELECT * FROM user
+                            WHERE nickname LIKE '$username' and PASSWORD LIKE '$password'");
+  return $response->fetch();
+}
