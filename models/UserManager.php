@@ -18,7 +18,7 @@ function GetAllUsers()
 function GetUserIdFromUserAndPassword($username, $password)
 {
   global $PDO;
-  $response = $PDO->query("SELECT * FROM user
+  $response = $PDO->query("SELECT id FROM user
                             WHERE nickname LIKE '$username' and PASSWORD LIKE '$password'");
-  return $response->fetch();
+  return $response->fetchColumn();
 }
